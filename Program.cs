@@ -1,58 +1,84 @@
-﻿using System;
-using runLED;
-namespace Homework5
-{
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-    class Program
+
+namespace test
+{
+    
+   public class Program
     {
         static void Main(string[] args)
-        {
-            int raw = 1;
-            IHomework05 inputkey = new Homework0();
-            var NumberLed = inputkey.LED();
-            var led = inputkey.Leds();
-
-            void PrintLed()
-            {
-                foreach (var item in led)
-
-                    Console.Write(item);
-                Console.WriteLine();
-                Console.WriteLine(NumberLed);
+        
+        {        
+            IEnumerable<int> setdata = null;
+                                                    
+            string result = null;                                          
+            string myString = string.Empty;
+            int myInt;
+           
+            Console.WriteLine("Max Numbers");
+            int max = int.Parse(Console.ReadLine());
+            Console.WriteLine("Key Numbers");
+            for (int i = 0; i < max; i++)
+            {   
+               myString = Console.ReadLine();                                   
+               var array = myString.ToCharArray() .Where(x => int.TryParse
+                            (x.ToString(), out myInt))
+                            .Select(x => int.Parse
+                            (x.ToString())).ToArray();                        
+                var input = new run();        
+                setdata = input.Homework13(array);
+                result+=" ";
+                foreach (var item in setdata)
+                result+=item;
             }
-
-            PrintLed();
-            Console.WriteLine("Keynumber ON/OOF");
-
-            while (raw < 2)
-            {
-                string KeyLed = Console.ReadLine();
-                var statusLed = inputkey.DisplayLEDOnScreen(KeyLed);
-
-                try
-                {
-                    if (statusLed == "A" || statusLed == "a")
-                    {
-                        var A = led.Length - 1;
-                        led[A] = led[A] == "[ ]" ? "[!]" : "[ ]";
-                    }
-                    else
-                    {
-                        int index = int.Parse(statusLed);
-                        index--;
-                        led[index] = led[index] == "[!]" ? "[ ]" : "[!]";
-                    }
-                    PrintLed();
-                    Console.WriteLine(" NumberLed " + statusLed);
-                }
-                catch (System.Exception)
-                {
-                    PrintLed();
-                    Console.WriteLine("Error!! notlednumber  " + statusLed);
-
-                }
-
-            }
+              Console.WriteLine(" Double 99 "); 
+              Console.WriteLine(result); 
+             
+              
         }
     }
-}
+}          
+          
+              
+
+                  
+            
+                 
+        
+                
+
+ 
+                    
+                     
+                    
+                     
+                      
+              
+
+                     
+                     
+                    
+                 
+
+                   
+
+
+           
+           
+
+            
+    
+   
+           
+         
+     
+          
+     
+        
+    
+     
+ 
+
+
